@@ -64,11 +64,19 @@ public final class Vector2D {
         return Math.atan2(y, x);
     }
 
-//    public double angle(Vector2D v) {
-//
-//    }
+    public double angle(Vector2D v) {
+        double difference = v.angle() - angle();
 
-    public double distant(Vector2D v) {
+        if (difference > Math.PI) {
+            difference -= 2 * Math.PI;
+        } else if (difference < -Math.PI) {
+            difference += 2 * Math.PI;
+        }
+
+        return difference;
+    }
+
+    public double distance(Vector2D v) {
         return Math.sqrt(Math.pow(x - v.x, 2) + Math.pow(y - v.y, 2));
     }
 
@@ -96,6 +104,16 @@ public final class Vector2D {
         return this;
     }
 
+    public Vector2D rotate(double angle) {
+        double originalX = this.x;
+        double originalY = this.y;
+
+        this.x = originalX * Math.cos(angle) - originalY * Math.sin(angle);
+        this.y = originalX * Math.sin(angle) + originalY * Math.cos(angle);
+
+        return this;
+    }
+
     public Vector2D set(double x, double y) {
         this.x = x;
         this.y = y;
@@ -108,10 +126,6 @@ public final class Vector2D {
         this.y = v.y;
 
         return this;
-    }
-
-    public Vector2D rotate(double angle) {
-        
     }
 
     public Vector2D subtract(double x, double y) {
