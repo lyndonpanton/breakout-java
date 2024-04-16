@@ -42,6 +42,9 @@ public class Keys extends KeyAdapter implements Controller {
             case KeyEvent.VK_RIGHT:
                 action.movement = 0;
                 break;
+            case KeyEvent.VK_SPACE:
+                action.releaseBall = false;
+                break;
         }
     }
 }
