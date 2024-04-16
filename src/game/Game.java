@@ -19,6 +19,10 @@ public class Game {
                 Ball.INITIAL_POSITION,
                 Ball.INITIAL_VELOCITY
         ));
+        gameObjects.add(new Paddle(
+                Paddle.PADDLE_INITIAL_POSITION,
+                new Vector2D(0, 0)
+        ));
     }
 
     public static void main(String[] args) throws InterruptedException {
