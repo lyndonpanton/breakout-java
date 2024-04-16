@@ -23,7 +23,7 @@ public class Game {
         gameObjects = new ArrayList<>();
         gameObjects.add(new Ball(
                 Ball.INITIAL_POSITION,
-                Ball.INITIAL_VELOCITY
+                new Vector2D(0, 0)
         ));
         gameObjects.add(new Paddle(
                 keyController,
@@ -49,6 +49,12 @@ public class Game {
     public void update() {
         for (GameObject gameObject : gameObjects) {
             gameObject.update();
+            if (gameObject instanceof Ball ball) {
+                if (keyController.getAction().releaseBall) {
+                    ball.isReleased = true;
+                    ball.velocity = Ball.INITIAL_VELOCITY;
+                }
+            }
         }
     }
 }
