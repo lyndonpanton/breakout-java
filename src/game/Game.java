@@ -47,16 +47,26 @@ public class Game {
     }
 
     public void update() {
+        ArrayList<GameObject> aliveGameObjects = new ArrayList<>();
+
         for (GameObject gameObject : gameObjects) {
             gameObject.update();
+
             if (gameObject instanceof Ball ball) {
                 if (keyController.getAction().releaseBall) {
                     ball.isReleased = true;
                     ball.velocity = Ball.INITIAL_VELOCITY;
-                } else if (ball.isDead) {
-                    gameObjects.remove(ball);
                 }
             }
+
+            if (!gameObject.isDead) {
+                aliveGameObjects.add(gameObject);
+            }
+        }
+
+        synchronized (Game.class) {
+            gameObjects.clear();
+            gameObjects.addAll(aliveGameObjects);
         }
     }
 }
