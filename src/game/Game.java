@@ -53,6 +53,8 @@ public class Game {
                 if (keyController.getAction().releaseBall) {
                     ball.isReleased = true;
                     ball.velocity = Ball.INITIAL_VELOCITY;
+                } else if (ball.isDead) {
+                    gameObjects.remove(ball);
                 }
             }
         }

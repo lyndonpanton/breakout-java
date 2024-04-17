@@ -16,14 +16,29 @@ public abstract class GameObject {
         this.velocity = velocity;
     }
 
-    public void hit() {
-        this.isDead = true;
-    }
+    public abstract void draw(Graphics2D g2D);
 
     public void update() {
         this.position.x += velocity.x;
         this.position.y += velocity.y;
     }
 
-    public abstract void draw(Graphics2D g2D);
+    public boolean isOverlapping(GameObject other) {
+        if (this.position.x < other.position.x) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void handleCollision(GameObject other) {
+        if (this.getClass() != other.getClass() && this.isOverlapping(other)) {
+            hit();
+            other.hit();
+        }
+    }
+
+    public void hit() {
+        this.isDead = true;
+    }
 }

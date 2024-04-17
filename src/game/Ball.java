@@ -4,6 +4,7 @@ import utilities.Vector2D;
 
 import java.awt.*;
 
+import static utilities.Constants.FRAME_HEIGHT;
 import static utilities.Constants.FRAME_WIDTH;
 
 public class Ball extends GameObject {
@@ -27,5 +28,9 @@ public class Ball extends GameObject {
     @Override
     public void update() {
         position.add(velocity);
+
+        if (position.y - BALL_RADIUS >= FRAME_HEIGHT) {
+            isDead = true;
+        }
     }
 }
