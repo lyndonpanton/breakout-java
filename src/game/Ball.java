@@ -17,6 +17,7 @@ public class Ball extends GameObject {
 
     public Ball(Vector2D position, Vector2D velocity) {
         super(position, velocity);
+        System.out.println("New ball created");
     }
 
     @Override
@@ -26,11 +27,19 @@ public class Ball extends GameObject {
     }
 
     @Override
+    public void handleCollision(GameObject other) {
+        if (other instanceof Paddle) {
+            velocity.y *= -1;
+        }
+    }
+
+    @Override
     public void update() {
         position.add(velocity);
 
         if (position.y - BALL_RADIUS >= FRAME_HEIGHT) {
             isDead = true;
+            System.out.println("Ball dead");
         }
     }
 }

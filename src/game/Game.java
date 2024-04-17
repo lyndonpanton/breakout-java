@@ -1,16 +1,12 @@
 package game;
 
-import utilities.Controller;
 import utilities.JEasyFrame;
 import utilities.Keys;
 import utilities.Vector2D;
 
-import java.awt.*;
-import java.io.Console;
 import java.util.ArrayList;
 
 import static utilities.Constants.DELAY;
-import static utilities.Constants.DT;
 
 public class Game {
     public static final String TITLE = "Breakout";
@@ -49,18 +45,36 @@ public class Game {
     public void update() {
         ArrayList<GameObject> aliveGameObjects = new ArrayList<>();
 
+        int total = 0;
         for (GameObject gameObject : gameObjects) {
+            total++;
             gameObject.update();
 
-            if (gameObject instanceof Ball ball) {
-                if (keyController.getAction().releaseBall) {
-                    ball.isReleased = true;
-                    ball.velocity = Ball.INITIAL_VELOCITY;
-                }
-            }
+//            for (GameObject otherGameObject : gameObjects) {
+//                if (gameObject.isOverlapping(otherGameObject)) {
+//                    gameObject.handleCollision(otherGameObject);
+//                }
+//            }
 
             if (!gameObject.isDead) {
                 aliveGameObjects.add(gameObject);
+            }
+
+            if (gameObject instanceof Ball ball) {
+                if (keyController.getAction().releaseBall && !ball.isReleased) {
+                    ball.isReleased = true;
+                    ball.velocity = Ball.INITIAL_VELOCITY;
+                    System.out.println("Releasing Ball");
+                }
+
+                if (ball.isDead) {
+                    Ball newBall = new Ball(
+                            Ball.INITIAL_POSITION,
+                            new Vector2D(0, 0)
+                    );
+
+                    aliveGameObjects.add(newBall);
+                }
             }
         }
 
@@ -68,5 +82,7 @@ public class Game {
             gameObjects.clear();
             gameObjects.addAll(aliveGameObjects);
         }
+
+        System.out.println(total);
     }
 }
