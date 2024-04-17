@@ -17,7 +17,7 @@ public class Ball extends GameObject {
 
     public Ball(Vector2D position, Vector2D velocity) {
         super(position, velocity);
-        System.out.println("New ball created");
+        System.out.println("Ball Constructor");
     }
 
     @Override
@@ -39,7 +39,6 @@ public class Ball extends GameObject {
 
         if (position.y - BALL_RADIUS >= FRAME_HEIGHT) {
             isDead = true;
-            System.out.println("Ball dead");
         }
     }
 }

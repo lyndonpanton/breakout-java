@@ -45,9 +45,7 @@ public class Game {
     public void update() {
         ArrayList<GameObject> aliveGameObjects = new ArrayList<>();
 
-        int total = 0;
         for (GameObject gameObject : gameObjects) {
-            total++;
             gameObject.update();
 
 //            for (GameObject otherGameObject : gameObjects) {
@@ -56,7 +54,8 @@ public class Game {
 //                }
 //            }
 
-            if (!gameObject.isDead) {
+            if (!gameObject.isDead && !(gameObject instanceof Ball)) {
+                System.out.println(gameObject.getClass());
                 aliveGameObjects.add(gameObject);
             }
 
@@ -64,14 +63,17 @@ public class Game {
                 if (keyController.getAction().releaseBall && !ball.isReleased) {
                     ball.isReleased = true;
                     ball.velocity = Ball.INITIAL_VELOCITY;
-                    System.out.println("Releasing Ball");
                 }
 
-                if (ball.isDead) {
+                if (!ball.isDead) {
+                    aliveGameObjects.add(ball);
+                } else {
                     Ball newBall = new Ball(
                             Ball.INITIAL_POSITION,
                             new Vector2D(0, 0)
                     );
+
+                    newBall.isDead = false;
 
                     aliveGameObjects.add(newBall);
                 }
@@ -82,7 +84,5 @@ public class Game {
             gameObjects.clear();
             gameObjects.addAll(aliveGameObjects);
         }
-
-        System.out.println(total);
     }
 }
