@@ -13,6 +13,7 @@ public class JEasyFrame extends JFrame {
         getContentPane().add(BorderLayout.CENTER, component);
         pack();
         setVisible(true);
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         repaint();
     }
