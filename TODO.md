@@ -1,5 +1,7 @@
 # TODO
 
+## Todo
+
 ## Game design
 
 - [ ] Difficulty should increase once a stage has been cleared
@@ -11,12 +13,12 @@
 
 ## Game programming
 
-- [ ] A ball should be drawn on the screen
-  - [ ] The ball should start in the center of the x-axis and a certain height
-  - [ ] The ball should be released a random angle (within a range)
-- [ ] A paddle should be drawn on the screen
-- [ ] Player should be able to control the paddle movement
-  - Movement should be along the x-axis
+- [x] A ball should be drawn on the screen
+  - [x] The ball should start in the center of the x-axis and a certain height
+  - [x] The ball should be released a random angle (within a range)
+- [x] A paddle should be drawn on the screen
+- [x] Player should be able to control the paddle movement
+  - [x] Movement should be along the x-axis
 - [ ] Ball should be able to collide with the paddle
   - [ ] Ball should change trajectory appropriately after a collision with the
   player paddle
@@ -26,7 +28,7 @@
 - [ ] Ball should be able to collide with the top edge of the screen
   - [ ] Ball should change trajectory appropriately after a collision with the
   top edge
-- Ball should be able to collide with the top edge of the screen
+- [ ] Ball should be able to collide with the top edge of the screen
   - [ ] Game restarts if the ball collides with the bottom edge
 - [ ] Rows of bricks should be drawn on the screen
   - [ ] Ball should be able to collide with any brick
@@ -52,6 +54,20 @@
 - [ ] Gameplay music
 - [ ] Pause music
 
-## User Interface
+## User interface
 
 - [ ] Points for the brick
+
+## Complete
+
+### Game design
+
+### Game programming
+
+### Graphics
+
+### Project management
+
+### Sound
+
+### User interface
