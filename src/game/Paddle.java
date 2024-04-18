@@ -47,10 +47,13 @@ public class Paddle extends GameObject {
     public void update() {
         Action action = controller.getAction();
 
-        if (action.movement < 0) {
-            this.position.x -= 5;
-        } else if (action.movement > 0) {
-            this.position.x += 5;
+        if (action.movement < 0 && position.x - PADDLE_SPEED > 0) {
+            this.position.x -= PADDLE_SPEED;
+        } else if (
+                action.movement > 0
+                && position.x + PADDLE_WIDTH + PADDLE_SPEED < FRAME_WIDTH
+        ) {
+            this.position.x += PADDLE_SPEED;
         }
     }
 }
