@@ -45,17 +45,14 @@ public class Game {
     public void update() {
         ArrayList<GameObject> aliveGameObjects = new ArrayList<>();
 
-        for (GameObject gameObject : gameObjects) {
+        for (GameObject gameObject: gameObjects) {
             gameObject.update();
 
-//            for (GameObject otherGameObject : gameObjects) {
-//                if (gameObject.isOverlapping(otherGameObject)) {
-//                    gameObject.handleCollision(otherGameObject);
-//                }
-//            }
+            for (GameObject otherGameObject: aliveGameObjects) {
+                gameObject.isOverlapping(otherGameObject);
+            }
 
             if (!gameObject.isDead && !(gameObject instanceof Ball)) {
-                System.out.println(gameObject.getClass());
                 aliveGameObjects.add(gameObject);
             }
 

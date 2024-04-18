@@ -34,6 +34,20 @@ public class Ball extends GameObject {
     }
 
     @Override
+    public boolean isOverlapping(GameObject other) {
+        if (other instanceof Paddle) {
+            System.out.println("Overlapping");
+            return (position.x + BALL_RADIUS > other.position.x
+                    || position.x - BALL_RADIUS < other.position.x + Paddle.PADDLE_WIDTH)
+                    && (position.y + BALL_RADIUS > other.position.y
+                    || position.y - BALL_RADIUS < other.position.y + Paddle.PADDLE_HEIGHT);
+        }
+
+        System.out.println("Not overlapping");
+        return false;
+    }
+
+    @Override
     public void update() {
         position.add(velocity);
 
