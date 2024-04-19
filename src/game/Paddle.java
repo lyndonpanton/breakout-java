@@ -56,4 +56,44 @@ public class Paddle extends GameObject {
             this.position.x += PADDLE_SPEED;
         }
     }
+
+    @Override
+    public void handleCollision(GameObject other) {
+        if (this.getClass() != other.getClass() && this.isOverlapping(other)) {
+            hit();
+            other.hit();
+        }
+    }
+
+    @Override
+    public void hit() {
+        isDead = false;
+    }
+
+    @Override
+    public boolean isOverlapping(GameObject other) {
+        if (other instanceof Ball ball) {
+            Vector2D distance = new Vector2D();
+            distance.x = Math.abs(ball.position.x - position.x);
+            distance.y = Math.abs(ball.position.y - position.y);
+
+            if (distance.x > ((double) (this.width / 2) + Ball.BALL_RADIUS))
+                return false;
+            if (distance.y > ((double) (this.height / 2) + Ball.BALL_RADIUS))
+                return false;
+
+            if (distance.x <= ((double) this.width / 2))
+                return true;
+            if (distance.y <= ((double) this.height / 2))
+                return true;
+
+            double cornerDistance =
+                    Math.pow(distance.x - (double) this.width / 2, 2)
+                            + Math.pow(distance.y - (double) this.height / 2, 2);
+
+            return cornerDistance <= Math.pow(Ball.BALL_RADIUS, 2);
+        }
+
+        return false;
+    }
 }

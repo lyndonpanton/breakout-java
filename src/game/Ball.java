@@ -27,11 +27,41 @@ public class Ball extends GameObject {
 
     @Override
     public void handleCollision(GameObject other) {
+        if (this.getClass() != other.getClass() && this.isOverlapping(other)) {
+            hit();
+            other.hit();
+        }
+    }
 
+    @Override
+    public void hit() {
+        velocity.y *= -1;
     }
 
     @Override
     public boolean isOverlapping(GameObject other) {
+        if (other instanceof Paddle paddle) {
+            Vector2D distance = new Vector2D();
+            distance.x = Math.abs(position.x - other.position.x);
+            distance.y = Math.abs(position.y - other.position.y);
+
+            if (distance.x > ((double) (paddle.width / 2) + BALL_RADIUS))
+                return false;
+            if (distance.y > ((double) (paddle.height / 2) + BALL_RADIUS))
+                return false;
+
+            if (distance.x <= ((double) paddle.width / 2))
+                return true;
+            if (distance.y <= ((double) paddle.height / 2))
+                return true;
+
+            double cornerDistance =
+                    Math.pow(distance.x - (double) paddle.width / 2, 2)
+                    + Math.pow(distance.y - (double) paddle.height / 2, 2);
+
+            return cornerDistance <= Math.pow(BALL_RADIUS, 2);
+        }
+
         return false;
     }
 

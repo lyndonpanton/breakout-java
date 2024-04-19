@@ -47,6 +47,12 @@ public class Game {
 
         for (GameObject gameObject: gameObjects) {
             gameObject.update();
+        }
+
+        for (GameObject gameObject: gameObjects) {
+            for (GameObject aliveGameObject: aliveGameObjects) {
+                gameObject.handleCollision(aliveGameObject);
+            }
 
             if (!gameObject.isDead && !(gameObject instanceof Ball)) {
                 aliveGameObjects.add(gameObject);
