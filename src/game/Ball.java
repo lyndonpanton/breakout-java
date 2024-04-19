@@ -75,6 +75,8 @@ public class Ball extends GameObject {
             velocity.x *= -1;
         } else if (position.x + BALL_RADIUS >= FRAME_WIDTH) {
             velocity.x *= -1;
+        } else if (position.y - BALL_RADIUS <= 0) {
+            velocity.y *= -1;
         }
     }
 }
