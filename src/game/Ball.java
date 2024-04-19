@@ -78,5 +78,7 @@ public class Ball extends GameObject {
         } else if (position.y - BALL_RADIUS <= 0) {
             velocity.y *= -1;
         }
+
+        System.out.println("Ball alive");
     }
 }

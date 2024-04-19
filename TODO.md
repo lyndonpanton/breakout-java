@@ -13,23 +13,7 @@
 
 ## Game programming
 
-- [x] A ball should be drawn on the screen
-  - [x] The ball should start in the center of the x-axis and a certain height
-  - [x] The ball should be released a random angle (within a range)
-- [x] A paddle should be drawn on the screen
-- [x] Player should be able to control the paddle movement
-  - [x] Movement should be along the x-axis
-- [ ] Ball should be able to collide with the paddle
-  - [ ] Ball should change trajectory appropriately after a collision with the
-  player paddle
-- [ ] Ball should be able to collide with the vertical edges of the screen
-  - [ ] Ball should change trajectory appropriately after a collision with a
-  vertical edge
-- [ ] Ball should be able to collide with the top edge of the screen
-  - [ ] Ball should change trajectory appropriately after a collision with the
-  top edge
-- [ ] Ball should be able to collide with the top edge of the screen
-  - [ ] Game restarts if the ball collides with the bottom edge
+- [ ] Game should restart with new ball after the previous ball is destroyed 
 - [ ] Rows of bricks should be drawn on the screen
   - [ ] Ball should be able to collide with any brick
     - [ ] Bricks are destroyed when the ball collides with them
@@ -56,13 +40,30 @@
 
 ## User interface
 
-- [ ] Points for the brick
+- [ ] Create a point system for destroying bricks
 
 ## Complete
 
 ### Game design
 
 ### Game programming
+
+- [x] A ball should be drawn on the screen
+  - [x] The ball should start in the center of the x-axis and a certain height
+  - [x] The ball should be released a random angle (within a range)
+- [x] A paddle should be drawn on the screen
+- [x] Player should be able to control the paddle movement
+  - [x] Movement should be along the x-axis
+- [x] Ball should be able to collide with the paddle
+  - [x] Ball should change trajectory appropriately after a collision with the
+    player paddle
+- [x] Ball should be able to collide with the vertical edges of the screen
+  - [x] Ball should change trajectory appropriately after a collision with a
+    vertical edge
+- [x] Ball should be able to collide with the top edge of the screen
+  - [x] Ball should change trajectory appropriately after a collision with the
+    top edge
+- [x] Ball should be destroyed if it goes past the bottom of the screen
 
 ### Graphics
 

@@ -67,14 +67,7 @@ public class Game {
                 if (!ball.isDead) {
                     aliveGameObjects.add(ball);
                 } else {
-                    Ball newBall = new Ball(
-                            Ball.INITIAL_POSITION,
-                            new Vector2D(0, 0)
-                    );
 
-                    newBall.isDead = false;
-
-                    aliveGameObjects.add(newBall);
                 }
             }
         }
