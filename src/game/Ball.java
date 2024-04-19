@@ -71,6 +71,10 @@ public class Ball extends GameObject {
 
         if (position.y - BALL_RADIUS >= FRAME_HEIGHT) {
             isDead = true;
+        } else if (position.x - BALL_RADIUS <= 0) {
+            velocity.x *= -1;
+        } else if (position.x + BALL_RADIUS >= FRAME_WIDTH) {
+            velocity.x *= -1;
         }
     }
 }

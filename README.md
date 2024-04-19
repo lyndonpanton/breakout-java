@@ -12,3 +12,4 @@ This project is stored on [GitHub](https://github.com/lyndonpanton/breakout-java
 
 - [Lyndon Mykal Panton](https://github.com/lyndonpanton/)
     - Developer
+- [Collision detection logic](https://stackoverflow.com/a/402010)
