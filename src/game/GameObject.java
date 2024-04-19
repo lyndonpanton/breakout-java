@@ -24,21 +24,14 @@ public abstract class GameObject {
     }
 
     public boolean isOverlapping(GameObject other) {
-        if (this.position.x < other.position.x) {
-            return true;
-        }
-
         return false;
     }
 
     public void handleCollision(GameObject other) {
-        if (this.getClass() != other.getClass() && this.isOverlapping(other)) {
-            hit();
-            other.hit();
-        }
+
     }
 
     public void hit() {
-        this.isDead = true;
+
     }
 }

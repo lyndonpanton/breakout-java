@@ -17,7 +17,6 @@ public class Ball extends GameObject {
 
     public Ball(Vector2D position, Vector2D velocity) {
         super(position, velocity);
-        System.out.println("Ball Constructor");
     }
 
     @Override
@@ -28,22 +27,11 @@ public class Ball extends GameObject {
 
     @Override
     public void handleCollision(GameObject other) {
-        if (other instanceof Paddle) {
-            velocity.y *= -1;
-        }
+
     }
 
     @Override
     public boolean isOverlapping(GameObject other) {
-        if (other instanceof Paddle) {
-            System.out.println("Overlapping");
-            return (position.x + BALL_RADIUS > other.position.x
-                    || position.x - BALL_RADIUS < other.position.x + Paddle.PADDLE_WIDTH)
-                    && (position.y + BALL_RADIUS > other.position.y
-                    || position.y - BALL_RADIUS < other.position.y + Paddle.PADDLE_HEIGHT);
-        }
-
-        System.out.println("Not overlapping");
         return false;
     }
 

@@ -48,10 +48,6 @@ public class Game {
         for (GameObject gameObject: gameObjects) {
             gameObject.update();
 
-            for (GameObject otherGameObject: aliveGameObjects) {
-                gameObject.isOverlapping(otherGameObject);
-            }
-
             if (!gameObject.isDead && !(gameObject instanceof Ball)) {
                 aliveGameObjects.add(gameObject);
             }
