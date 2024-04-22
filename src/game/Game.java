@@ -6,6 +6,7 @@ import utilities.Vector2D;
 
 import java.util.ArrayList;
 
+import static game.Brick.*;
 import static utilities.Constants.*;
 
 public class Game {
@@ -26,6 +27,21 @@ public class Game {
                 Paddle.PADDLE_INITIAL_POSITION,
                 new Vector2D(0, 0)
         ));
+
+        int yPosition = BRICK_Y_GAP;
+
+        int total = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < FRAME_WIDTH; j += BRICK_WIDTH) {
+                Brick brick = new Brick(new Vector2D(j, yPosition));
+                gameObjects.add(brick);
+                j += BRICK_X_GAP;
+                total += 1;
+            }
+
+            yPosition += BRICK_HEIGHT + BRICK_Y_GAP;
+        }
+        System.out.println(total);
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -65,12 +81,6 @@ public class Game {
                 }
 
                 if (ball.isDead) {
-//                    ball.isDead = false;
-//                    ball.isReleased = false;
-//                    ball.position.set(Ball.INITIAL_POSITION);
-////                    ball.velocity.set(Ball.INITIAL_VELOCITY.multiply(-1));
-//                    ball.velocity.set(new Vector2D(0, 0));
-//                    System.out.println(ball.position.x + " " + ball.position.y);
                     aliveGameObjects.add(new Ball(
                             new Vector2D((double) FRAME_WIDTH / 2, 320),
                             new Vector2D(0, 0)
