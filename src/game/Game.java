@@ -6,7 +6,7 @@ import utilities.Vector2D;
 
 import java.util.ArrayList;
 
-import static utilities.Constants.DELAY;
+import static utilities.Constants.*;
 
 public class Game {
     public static final String TITLE = "Breakout";
@@ -64,11 +64,21 @@ public class Game {
                     ball.velocity = Ball.INITIAL_VELOCITY;
                 }
 
-                if (!ball.isDead) {
-                    aliveGameObjects.add(ball);
+                if (ball.isDead) {
+//                    ball.isDead = false;
+//                    ball.isReleased = false;
+//                    ball.position.set(Ball.INITIAL_POSITION);
+////                    ball.velocity.set(Ball.INITIAL_VELOCITY.multiply(-1));
+//                    ball.velocity.set(new Vector2D(0, 0));
+//                    System.out.println(ball.position.x + " " + ball.position.y);
+                    aliveGameObjects.add(new Ball(
+                            new Vector2D((double) FRAME_WIDTH / 2, 320),
+                            new Vector2D(0, 0)
+                    ));
                 } else {
-
+                    aliveGameObjects.add(ball);
                 }
+
             }
         }
 
