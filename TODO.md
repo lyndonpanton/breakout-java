@@ -13,12 +13,11 @@
 
 ## Game programming
 
-- [ ] Game should restart with new ball after the previous ball is destroyed 
-- [ ] Rows of bricks should be drawn on the screen
-  - [ ] Ball should be able to collide with any brick
-    - [ ] Bricks are destroyed when the ball collides with them
-    - [ ] Ball should change trajectory appropriately after a collision with a
-    brick
+
+- [ ] Ball should change trajectory appropriately after a collision with a
+brick
+    - If the ball hits the left edge of a brick, it goes right. If the ball hits the bottom edge of a brick it goes
+    - down, etc.
 - [ ] Player should be able to pause the game
 
 ## Graphics
@@ -64,6 +63,10 @@
   - [x] Ball should change trajectory appropriately after a collision with the
     top edge
 - [x] Ball should be destroyed if it goes past the bottom of the screen
+- [x] Game should restart with new ball after the previous ball is destroyed
+- [x] Rows of bricks should be drawn on the screen
+  - [x] Ball should be able to collide with bricks
+    - [x] Bricks are destroyed when the ball collides with them
 
 ### Graphics
 
