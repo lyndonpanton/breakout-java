@@ -42,8 +42,8 @@ public class Ball extends GameObject {
     public boolean isOverlapping(GameObject other) {
         if (other instanceof Paddle paddle) {
             Vector2D distance = new Vector2D();
-            distance.x = Math.abs(position.x - other.position.x);
-            distance.y = Math.abs(position.y - other.position.y);
+            distance.x = Math.abs(position.x - paddle.position.x);
+            distance.y = Math.abs(position.y - paddle.position.y);
 
             if (distance.x > ((double) (paddle.width / 2) + BALL_RADIUS))
                 return false;
@@ -58,6 +58,26 @@ public class Ball extends GameObject {
             double cornerDistance =
                     Math.pow(distance.x - (double) paddle.width / 2, 2)
                     + Math.pow(distance.y - (double) paddle.height / 2, 2);
+
+            return cornerDistance <= Math.pow(BALL_RADIUS, 2);
+        } else if (other instanceof Brick brick) {
+            Vector2D distance = new Vector2D();
+            distance.x = Math.abs(position.x - brick.position.x);
+            distance.y = Math.abs(position.y - brick.position.y);
+
+            if (distance.x > ((brick.width / 2) + BALL_RADIUS))
+                return false;
+            if (distance.y > ((brick.height / 2) + BALL_RADIUS))
+                return false;
+
+            if (distance.x <= (brick.width / 2))
+                return true;
+            if (distance.y <= (brick.height / 2))
+                return true;
+
+            double cornerDistance =
+                    Math.pow(distance.x - brick.width / 2, 2)
+                            + Math.pow(distance.y - brick.height / 2, 2);
 
             return cornerDistance <= Math.pow(BALL_RADIUS, 2);
         }
