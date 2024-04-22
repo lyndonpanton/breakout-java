@@ -45,6 +45,11 @@ public class Brick extends GameObject {
     }
 
     @Override
+    public void hit() {
+        isDead = true;
+    }
+
+    @Override
     public boolean isOverlapping(GameObject other) {
         System.out.println("Break!");
         if (other instanceof Ball ball) {
