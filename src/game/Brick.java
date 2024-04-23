@@ -51,7 +51,6 @@ public class Brick extends GameObject {
 
     @Override
     public boolean isOverlapping(GameObject other) {
-        System.out.println("Break!");
         if (other instanceof Ball ball) {
             Vector2D distance = new Vector2D();
             distance.x = Math.abs(ball.position.x - position.x);
