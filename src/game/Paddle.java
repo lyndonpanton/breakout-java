@@ -18,7 +18,7 @@ public class Paddle extends GameObject {
                     400
             );
     public static final Color PADDLE_COLOR = Color.WHITE;
-    public static final int PADDLE_SPEED = 5;
+    public static final int PADDLE_SPEED = 4;
 
     public int width;
     public int height;
