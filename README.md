@@ -10,7 +10,11 @@ This project is stored on [GitHub](https://github.com/lyndonpanton/breakout-java
 
 ## Credits
 
-- [Lyndon Mykal Panton](https://github.com/lyndonpanton/)
-    - Developer
+- Developer(s)
+    - [Lyndon Mykal Panton](https://github.com/lyndonpanton/)
 - [Collision detection logic](https://stackoverflow.com/a/402010)
-- [Sound Effects: JD Sherbert](https://jdsherbert.itch.io/ultimate-ui-sfx-pack)
+- Background music
+    - [Minigame Music Pack | JD Sherbert](https://jdsherbert.itch.io/minigame-music-pack)
+    - [Nostalgia Music Pack | JD Sherbert](https://jdsherbert.itch.io/nostalgia-music-pack)
+- Sound Effects
+    - [Ultimate UI SFX Pack | JD Sherbert](https://jdsherbert.itch.io/ultimate-ui-sfx-pack)
