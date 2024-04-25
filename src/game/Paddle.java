@@ -1,5 +1,6 @@
 package game;
 
+import manager.SoundManager;
 import utilities.Action;
 import utilities.Controller;
 import utilities.Vector2D;

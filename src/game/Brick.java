@@ -1,5 +1,6 @@
 package game;
 
+import manager.SoundManager;
 import utilities.Vector2D;
 
 import java.awt.*;
@@ -46,6 +47,7 @@ public class Brick extends GameObject {
 
     @Override
     public void hit() {
+
         isDead = true;
     }
 
