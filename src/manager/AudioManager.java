@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.AudioInputStream;
 import java.io.File;
 
-public class SoundManager {
+public class AudioManager {
 
 	final static String sfxPath = "audio/sfx/ultimate-ui-sfx-pack/";
 	final static String bgmPath = "audio/bgm/minigame-music-pack/";

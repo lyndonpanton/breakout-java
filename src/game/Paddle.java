@@ -1,11 +1,9 @@
 package game;
 
-import manager.SoundManager;
 import utilities.Action;
 import utilities.Controller;
 import utilities.Vector2D;
 
-import javax.naming.ldap.Control;
 import java.awt.*;
 
 import static utilities.Constants.FRAME_WIDTH;

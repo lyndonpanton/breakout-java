@@ -1,12 +1,10 @@
 package game;
 
-import manager.SoundManager;
 import utilities.Vector2D;
 
 import java.awt.*;
 
 import static game.Ball.BALL_RADIUS;
-import static utilities.Constants.FRAME_WIDTH;
 
 public class Brick extends GameObject {
     public Color colour;
