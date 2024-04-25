@@ -11,38 +11,37 @@ import java.io.File;
 
 public class SoundManager {
 
-	static int nBullet = 0;
-	static boolean thrusting = false;
-
-	final static String sfxPath = "audio/sfx";
-	final static String bgmPath = "audio/bgm";
+	final static String sfxPath = "audio/sfx/ultimate-ui-sfx-pack/";
+	final static String bgmPath = "audio/bgm/minigame-music-pack/";
 
 	public final static Clip[] bullets = new Clip[15];
 
-	public final static Clip bangLarge = getClip("thrust");
-	public final static Clip bangMedium = getClip("bangMedium");
-	public final static Clip bangSmall = getClip("bangSmall");
-	public final static Clip beat1 = getClip("beat1");
-	public final static Clip beat2 = getClip("beat2");
-	public final static Clip extraShip = getClip("extraShip");
-	public final static Clip fire = getClip("fire");
-	public final static Clip saucerBig = getClip("saucerBig");
-	public final static Clip saucerSmall = getClip("saucerSmall");
-	public final static Clip thrust = getClip("thrust");
+	public final static Clip cancel1 = getClip("cancel-1");
+	public final static Clip cancel2 = getClip("cancel-2");
+	public final static Clip cursor1 = getClip("cursor-1");
+	public final static Clip cursor2 = getClip("cursor-2");
+	public final static Clip cursor3 = getClip("cursor-3");
+	public final static Clip cursor4 = getClip("cursor-4");
+	public final static Clip cursor5 = getClip("cursor-5");
+	public final static Clip error1 = getClip("error-1");
+	public final static Clip popupClose1 = getClip("popup-close-1");
+	public final static Clip popupOpen1 = getClip("popup-open-1");
+	public final static Clip select1 = getClip("select-1");
+	public final static Clip select2 = getClip("select-2");
+	public final static Clip swipe1 = getClip("swipe-1");
+	public final static Clip swipe2 = getClip("swipe-2");
 
-	public final static Clip[] clips = {bangLarge, bangMedium, bangSmall, beat1, beat2, 
-		extraShip, fire, saucerBig, saucerSmall, thrust};
+	public final static Clip[] clips = {
+			cancel1, cancel2, cursor1, cursor2, cursor3, cursor4, cursor5, error1, popupClose1,
+			popupOpen1, select1, select2, swipe1, swipe2
+	};
 	
- static {
+ 	static {
 		for (int i = 0; i < bullets.length; i++)
-			bullets[i] = getClip("fire");
+			bullets[i] = getClip("select-1");
 	}
 
 	public static void main(String[] args) throws Exception {
-		for (int i = 0; i < 20; i++) {
-			fire();
-			Thread.sleep(100);
-		}
 		for (Clip clip : clips) {
 			play(clip);
 			Thread.sleep(1000);
@@ -69,36 +68,14 @@ public class SoundManager {
 		return clip;
 	}
 
-	// methods which modify (static) fields
-
-	public static void fire() {
-		// fire the n-th bullet and increment the index
-		Clip clip = bullets[nBullet];
-		clip.setFramePosition(0);
-		clip.start();
-		nBullet = (nBullet + 1) % bullets.length;
-	}
-
-	public static void startThrust() {
-		if (!thrusting) {
-			thrust.loop(-1);
-			thrusting = true;
-		}
-	}
-
-	public static void stopThrust() {
-		thrust.loop(0);
-		thrusting = false;
-	}
-
 	// Custom methods playing a particular sound
 	// Please add your own methods below
 
 	public static void asteroids() {
-		play(bangMedium);
+		play(swipe1);
 	}
 	public static void extraShip() {
-		play(extraShip);
+		play(swipe2);
 	}
 
 }
