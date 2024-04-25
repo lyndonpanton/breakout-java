@@ -1,4 +1,4 @@
-package lectures;
+package manager;
 
 // change package name to fit your own package structure!
 
@@ -14,11 +14,9 @@ public class SoundManager {
 	static int nBullet = 0;
 	static boolean thrusting = false;
 
-	// this may need modifying
-	final static String path = "sounds/";
+	final static String sfxPath = "audio/sfx";
+	final static String bgmPath = "audio/bgm";
 
-	// note: having too many clips open may cause
-	// "LineUnavailableException: No Free Voices"
 	public final static Clip[] bullets = new Clip[15];
 
 	public final static Clip bangLarge = getClip("thrust");
@@ -62,7 +60,7 @@ public class SoundManager {
 		Clip clip = null;
 		try {
 			clip = AudioSystem.getClip();
-			AudioInputStream sample = AudioSystem.getAudioInputStream(new File(path
+			AudioInputStream sample = AudioSystem.getAudioInputStream(new File(sfxPath
 					+ filename + ".wav"));
 			clip.open(sample);
 		} catch (Exception e) {
