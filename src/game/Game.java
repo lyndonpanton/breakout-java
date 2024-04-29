@@ -12,19 +12,24 @@ import static utilities.Constants.*;
 public class Game {
     public static final String TITLE = "Breakout";
     ArrayList<GameObject> gameObjects;
+    public Paddle gamePaddle;
     private Keys keyController;
 
     public Game() {
         keyController = new Keys();
 
         gameObjects = new ArrayList<>();
-        gameObjects.add(new Ball(
-                Ball.INITIAL_POSITION,
-                new Vector2D(0, 0)
-        ));
-        gameObjects.add(new Paddle(
+
+        gamePaddle = new Paddle(
                 keyController,
                 Paddle.PADDLE_INITIAL_POSITION,
+                new Vector2D(0, 0)
+        );
+
+        gameObjects.add(gamePaddle);
+
+        gameObjects.add(new Ball(
+                Ball.INITIAL_POSITION,
                 new Vector2D(0, 0)
         ));
 
@@ -75,6 +80,19 @@ public class Game {
             }
 
             if (gameObject instanceof Ball ball) {
+                if (ball.isDead) {
+                    System.out.println("Resetting paddle position....");
+
+                    for (GameObject otherGameObject: gameObjects) {
+                        if (otherGameObject instanceof Paddle paddle) {
+                            System.out.println("Paddle position: " + paddle.position);
+                            paddle.position.x = Paddle.PADDLE_INITIAL_POSITION.x;
+                            System.out.println("Paddle position: " + paddle.position);
+                        }
+                    }
+
+                    System.out.println("Paddle position reset...");
+                }
                 if (keyController.getAction().releaseBall && !ball.isReleased) {
                     ball.isReleased = true;
                     ball.velocity = Ball.INITIAL_VELOCITY;
@@ -85,6 +103,7 @@ public class Game {
                             new Vector2D((double) FRAME_WIDTH / 2, 320),
                             new Vector2D(0, 0)
                     ));
+                    gamePaddle.position.set(Paddle.PADDLE_INITIAL_POSITION);
                 } else {
                     aliveGameObjects.add(ball);
                 }

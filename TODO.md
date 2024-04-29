@@ -10,6 +10,7 @@
   - Ball increases in speed
   - Ball shoots of bricks at a random angle, instead of the opposite angle it
   hit a particular brick 
+- [ ] Reset paddle position when a new ball is spawned 
 
 ## Game programming
 
